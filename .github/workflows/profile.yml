@@ -1,0 +1,25 @@
+name: Profile
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify profile contract
+        run: |
+          test -s README.md
+          grep -Fq 'PYYI.OS' README.md
+          grep -Fq 'https://pyyi.work/' README.md
+          grep -Fq 'https://github.com/kilbertert/Auto_Test' README.md
+          grep -Fq 'https://github.com/kilbertert/llm-vision-proxy' README.md
+          grep -Fq 'https://github.com/kilbertert/borderless-business-days' README.md
+          grep -Fq 'https://github.com/kilbertert/paper-hub' README.md

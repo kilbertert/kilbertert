@@ -4,6 +4,8 @@
 
 Verify the public profile trigger, core content, navigation, and decorative assets for the `kilbertert/kilbertert` repository.
 
+The `Profile / verify` workflow enforces the stable content contract without making CI depend on third-party network availability.
+
 ## Cases
 
 ### QA-01 — Profile trigger
