@@ -2,9 +2,9 @@
 
 ## Scope
 
-Verify the public profile trigger, core content, navigation, and responsive summary card for the `kilbertert/kilbertert` repository.
+Verify that the public profile has returned to GitHub's default starter README.
 
-The `Profile / verify` workflow enforces the stable content contract without making CI depend on third-party network availability.
+The `Profile / verify` workflow enforces the local starter-template contract.
 
 ## Cases
 
@@ -16,29 +16,28 @@ The `Profile / verify` workflow enforces the stable content contract without mak
 - Actions:
   1. Open the profile URL without repository write access.
   2. Find the `kilbertert/README.md` profile section.
-- Expected: the concise PYYI introduction and selected-work list are visible.
+- Expected: the `Hi there` starter heading is visible and the suggestions remain in an HTML comment.
 - Cleanup: none
 
-### QA-02 — Public navigation
+### QA-02 — No external assets
 
 - Environment: public HTTPS
 - Preconditions: profile README is merged
-- Test data: website and four selected-project URLs from `README.md`
+- Test data: the merged `README.md`
 - Actions:
-  1. Request every destination URL.
-  2. Confirm each returns an HTTP success response.
-- Expected: all destinations are publicly reachable.
+-  1. Inspect the rendered profile and README source.
+  2. Confirm no external image URL appears in the source.
+- Expected: the profile uses no third-party image, badge, animation, or statistics service.
 - Cleanup: none
 
-### QA-03 — Responsive summary card
+### QA-03 — Default source match
 
-- Environment: public HTTPS
+- Environment: Git repository
 - Preconditions: none
-- Test data: light- and dark-theme summary card URLs from `README.md`
+- Test data: `970edd0:README.md`
 - Actions:
-  1. Request both image URLs.
-  2. Confirm each returns an HTTP success response and SVG content type.
-- Expected: both cards load; meaningful `alt` text remains if the provider later fails.
+-  1. Compare the current README with the initial repository README.
+- Expected: the content matches GitHub's generated starter template.
 - Cleanup: none
 
 ## Traceability
@@ -46,5 +45,5 @@ The `Profile / verify` workflow enforces the stable content contract without mak
 | Requirement | Scenario | QA case |
 | --- | --- | --- |
 | Profile README renders on Overview | A visitor opens the GitHub profile | QA-01 |
-| Public links remain navigable | A visitor opens the GitHub profile | QA-02 |
-| Core content survives image failure | The summary card service is unavailable | QA-03 |
+| No third-party assets are required | The default README has no external assets | QA-02 |
+| Default starter content is restored | The default source match | QA-03 |
