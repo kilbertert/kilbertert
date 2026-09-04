@@ -17,8 +17,9 @@ jobs:
       - name: Verify profile contract
         run: |
           test -s README.md
-          grep -Fq 'PYYI.OS' README.md
+          grep -Fq "Hi, I'm PYYI." README.md
           grep -Fq 'https://pyyi.work/' README.md
+          grep -Fq 'github-profile-summary-cards.vercel.app' README.md
           grep -Fq 'https://github.com/kilbertert/Auto_Test' README.md
           grep -Fq 'https://github.com/kilbertert/llm-vision-proxy' README.md
           grep -Fq 'https://github.com/kilbertert/borderless-business-days' README.md

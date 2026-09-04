@@ -2,7 +2,7 @@
 
 ## Scope
 
-Verify the public profile trigger, core content, navigation, and decorative assets for the `kilbertert/kilbertert` repository.
+Verify the public profile trigger, core content, navigation, and responsive summary card for the `kilbertert/kilbertert` repository.
 
 The `Profile / verify` workflow enforces the stable content contract without making CI depend on third-party network availability.
 
@@ -16,7 +16,7 @@ The `Profile / verify` workflow enforces the stable content contract without mak
 - Actions:
   1. Open the profile URL without repository write access.
   2. Find the `kilbertert/README.md` profile section.
-- Expected: the PYYI.OS introduction and selected-work table are visible.
+- Expected: the concise PYYI introduction and selected-work list are visible.
 - Cleanup: none
 
 ### QA-02 — Public navigation
@@ -30,15 +30,15 @@ The `Profile / verify` workflow enforces the stable content contract without mak
 - Expected: all destinations are publicly reachable.
 - Cleanup: none
 
-### QA-03 — Decorative assets
+### QA-03 — Responsive summary card
 
 - Environment: public HTTPS
 - Preconditions: none
-- Test data: banner, typing animation, badges, and skill-icon URLs from `README.md`
+- Test data: light- and dark-theme summary card URLs from `README.md`
 - Actions:
-  1. Request every image URL.
-  2. Confirm each returns an HTTP success response and image content type.
-- Expected: all decorative assets load; meaningful `alt` text remains if a provider later fails.
+  1. Request both image URLs.
+  2. Confirm each returns an HTTP success response and SVG content type.
+- Expected: both cards load; meaningful `alt` text remains if the provider later fails.
 - Cleanup: none
 
 ## Traceability
@@ -47,4 +47,4 @@ The `Profile / verify` workflow enforces the stable content contract without mak
 | --- | --- | --- |
 | Profile README renders on Overview | A visitor opens the GitHub profile | QA-01 |
 | Public links remain navigable | A visitor opens the GitHub profile | QA-02 |
-| Core content survives image failure | A decorative image service is unavailable | QA-03 |
+| Core content survives image failure | The summary card service is unavailable | QA-03 |
