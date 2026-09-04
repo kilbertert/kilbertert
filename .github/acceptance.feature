@@ -7,12 +7,12 @@ Feature: GitHub profile README
       Given the public repository is named "kilbertert"
       And its root contains a non-empty README.md
       When the visitor opens "https://github.com/kilbertert"
-      Then the profile displays the PYYI.OS introduction
+      Then the profile displays the concise PYYI introduction
       And the profile links to selected public projects
       And the profile links to "https://pyyi.work/"
 
-    Scenario: A decorative image service is unavailable
+    Scenario: The summary card service is unavailable
       Given the profile README contains text descriptions and project links
-      When a remote banner, animation, badge, or icon cannot load
+      When the remote summary card cannot load
       Then the visitor can still read the profile focus
       And the visitor can still navigate to every selected project
