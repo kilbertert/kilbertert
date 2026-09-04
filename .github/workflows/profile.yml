@@ -17,10 +17,6 @@ jobs:
       - name: Verify profile contract
         run: |
           test -s README.md
-          grep -Fq "Hi, I'm PYYI." README.md
-          grep -Fq 'https://pyyi.work/' README.md
-          grep -Fq 'github-profile-summary-cards.vercel.app' README.md
-          grep -Fq 'https://github.com/kilbertert/Auto_Test' README.md
-          grep -Fq 'https://github.com/kilbertert/llm-vision-proxy' README.md
-          grep -Fq 'https://github.com/kilbertert/borderless-business-days' README.md
-          grep -Fq 'https://github.com/kilbertert/paper-hub' README.md
+          grep -Fq '## Hi there' README.md
+          grep -Fq '**kilbertert/kilbertert** is a ✨ _special_ ✨ repository' README.md
+          test "$(grep -Ec 'https?://|<img' README.md)" -eq 0
